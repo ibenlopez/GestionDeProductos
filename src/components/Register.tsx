@@ -21,9 +21,10 @@ function Register() {
     return (
         <div>
             <h2>Registro</h2>
-            <form onSubmit={handleSubmit}>
+            <form className="card p-4 shadow" onSubmit={handleSubmit}>
                 <input
                     type="text"
+                    className="form-control mb-3"
                     placeholder="Nombre"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -31,6 +32,7 @@ function Register() {
                 />
                 <input
                     type="email"
+                    className="form-control mb-3"
                     placeholder="Correo"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -38,12 +40,13 @@ function Register() {
                 />
                 <input
                     type="password"
+                    className="form-control mb-3"
                     placeholder="Contraseña"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type="submit">Registrarse</button>
+                <button className="btn btn-success" type="submit">Registrarse</button>
             </form>
         </div>
     );
