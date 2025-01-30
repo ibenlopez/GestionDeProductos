@@ -19,7 +19,7 @@ function Login() {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container pt-5">
             <h2 className="text-primary">Iniciar Sesión</h2>
             <form className="card p-4 shadow" onSubmit={handleSubmit}>
                 <input

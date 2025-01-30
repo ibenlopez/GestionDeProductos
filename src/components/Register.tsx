@@ -19,7 +19,7 @@ function Register() {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-5 w-md-100 w-lg-50">
             <h2 className="text-primary">Registro</h2>
             <form className="card p-4 shadow" onSubmit={handleSubmit}>
                 <input
