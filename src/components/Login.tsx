@@ -21,10 +21,24 @@ function Login() {
     return (
         <div className="container mt-5">
             <h2 className="text-primary">Iniciar Sesión</h2>
-            <form className="card p-4 shadow">
-                <input className="form-control mb-3" type="email" placeholder="Correo" />
-                <input className="form-control mb-3" type="password" placeholder="Contraseña" />
-                <button className="btn btn-success">Ingresar</button>
+            <form className="card p-4 shadow" onSubmit={handleSubmit}>
+                <input
+                className="form-control mb-3"
+                    type="email"
+                    placeholder="Correo"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <input
+                className="form-control mb-3"
+                    type="password"
+                    placeholder="Contraseña"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+                <button className="btn btn-success" type="submit">Ingresar</button>
             </form>
         </div>
     );

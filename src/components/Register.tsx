@@ -19,28 +19,28 @@ function Register() {
     };
 
     return (
-        <div>
-            <h2>Registro</h2>
+        <div className="container mt-5">
+            <h2 className="text-primary">Registro</h2>
             <form className="card p-4 shadow" onSubmit={handleSubmit}>
                 <input
+                className="form-control mb-3"
                     type="text"
-                    className="form-control mb-3"
                     placeholder="Nombre"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
                 <input
+                className="form-control mb-3"
                     type="email"
-                    className="form-control mb-3"
                     placeholder="Correo"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
                 <input
+                className="form-control mb-3"
                     type="password"
-                    className="form-control mb-3"
                     placeholder="Contraseña"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
