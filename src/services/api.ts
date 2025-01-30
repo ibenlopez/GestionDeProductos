@@ -9,7 +9,7 @@ const api = axios.create({
 
 // Interceptor para incluir el token en cada petición
 api.interceptors.request.use((config) => {
-  const token = "3|lpQYnpZOacugUulckv95P0ifSUnWKHNgN7EmCjsvd01fd951"
+  const token = localStorage.getItem("token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
