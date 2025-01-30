@@ -11,7 +11,7 @@ function Login() {
         e.preventDefault();
         try {
             const response = await login(email, password);
-            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("token", response.data.access_token);
             navigate("/dashboard");
         } catch (error) {
             console.error("Error de inicio de sesión", error);
