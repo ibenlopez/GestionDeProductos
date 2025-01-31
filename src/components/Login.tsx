@@ -21,6 +21,8 @@ function Login() {
 
     return (
         <div className="container pt-5">
+            <div className="row justify-content-center">
+            <div className="col-lg-6">
             <h2 className="text-info">Iniciar Sesión</h2>
             <form className="card p-4 shadow" onSubmit={handleSubmit}>
                 <input
@@ -41,6 +43,8 @@ function Login() {
                 />
                 <button className="btn btn-info" type="submit">Ingresar</button>
             </form>
+            </div>
+            </div>
         </div>
     );
 }

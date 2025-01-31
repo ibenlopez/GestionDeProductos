@@ -45,7 +45,6 @@ const ProductList = () => {
     //Retorno de los datos una vez hecha la peticion
     return (
         <div>
-            <h2 className="fw-bold text-center my-4">Lo más novedoso</h2>
             <div className="container">
                 <div className="row">
                     {products.map((product) => (

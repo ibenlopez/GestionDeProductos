@@ -1,9 +1,11 @@
 import ProductList from "../components/ShowProducts";
+import Banner from "../components/Banner";
 
 function Home() {
     return (
         <div>
-            <h1 className="mt-4">Bienvenido a la Tienda</h1>
+            <Banner/>
+            <h2 className="my-5 fw-bold">Descubre lo que piensan los demás, <span className="text-info">comparte lo que amas</span></h2>
             <ProductList />
         </div>
     );
