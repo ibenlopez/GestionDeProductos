@@ -5,7 +5,7 @@ const ProductPage: React.FC = () => {
   return (
     <div>
       <h1>Detalle del Producto</h1>
-      <ProductDetail />
+      <ProductDetail/>
     </div>
   );
 };
