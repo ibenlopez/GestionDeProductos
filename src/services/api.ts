@@ -18,6 +18,18 @@ api.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
+api.interceptors.response.use(
+  response => response, // retorna la respuesta exitosa
+  async error => {
+    if (error.response.status === 401) {
+      localStorage.removeItem('token');
+        window.location.href = '/login';
+        return Promise.reject(error);
+    }
+    return Promise.reject(error); // Para todos los demás errores, se retorna el error original
+  }
+);
+
 export const isLoggedIn = () => {
   return localStorage.getItem("token") != "" &&  localStorage.getItem("token") != null;
 }

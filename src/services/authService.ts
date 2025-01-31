@@ -1,4 +1,5 @@
 import axios from "axios";
+import api from "./api";
 
 const API_URL = "http://127.0.0.1:8000/api";
 
@@ -9,11 +10,9 @@ export const register = (name: string, email: string, password: string) => {
 export const login = (email: string, password: string) => {
     return axios.post(`${API_URL}/login`, { email, password });
 };
-
-export const validateToken = (token: string) => {
-    return axios.get(`${API_URL}/validate-token`, {
-        headers: { Authorization: `Bearer ${token}` },
-    });
+//verifica que el token siga válido
+export const validateToken = () => {
+    return api.get(`/validate-token`,);
 };
 //Acá cierro la sesiíon
 export const logout = async () => {

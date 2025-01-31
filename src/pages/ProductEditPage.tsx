@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { createProduct, getProduct, updateProduct } from '../services/productDetailService';
 import { ProductDetail } from '../interface/IProductDetail';
 import { FaSave } from 'react-icons/fa';
+import { validateToken } from '../services/authService';
 
 //Página individual de producto para editarlo desde el Dashboard
 
@@ -26,6 +27,7 @@ const ProductEditPage: React.FC = () => {
         console.log(product);
         setProduct(product["data"]);
       })
+      validateToken();
     }
   }, []);
 

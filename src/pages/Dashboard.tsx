@@ -3,6 +3,7 @@ import { deleteProduct, getProducts } from "../services/productDetailService";
 import { Product } from "../interface/IProduct";
 
 import { FaPen, FaTrash, FaFileArchive, FaPlusCircle, FaEye } from 'react-icons/fa';
+import { validateToken } from "../services/authService";
 
 
 function Dashboard() {
@@ -11,6 +12,7 @@ function Dashboard() {
 
     useEffect(() => {
         getProducts().then(products => setProducts(products));
+        validateToken();
     }, []);
 
     const deleteSelected = async () => {
