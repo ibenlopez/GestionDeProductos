@@ -4,7 +4,7 @@ import ProductDetail from '../components/ProductDetail';
 const ProductPage: React.FC = () => {
   return (
     <div>
-      <h1>Detalle del Producto</h1>
+      <h1 className="my-5">Detalle del Producto</h1>
       <ProductDetail/>
     </div>
   );

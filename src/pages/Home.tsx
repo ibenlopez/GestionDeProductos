@@ -1,5 +1,13 @@
+import ProductList from "../components/ShowProducts";
+
 function Home() {
-    return <h1>Página de Inicio</h1>;
+    return (
+        <div>
+            <h1 className="mt-4">Bienvenido a la Tienda</h1>
+            <ProductList />
+        </div>
+    );
+
 }
 
 export default Home;

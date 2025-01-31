@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import './App.css'
-import ProductPage from "./pages/ProductPage";
+import ProductDetail from "./pages/ProductPage";
 
 function App() {
     return (
@@ -20,7 +20,7 @@ function App() {
                     path="/dashboard"
                     element={<ProtectedRoute component={Dashboard} />}
                 />
-                <Route path="/products/:id" element={<ProtectedRoute component={ProductPage} />} />
+                <Route path="/products/:id" element={<ProductDetail />} />
             </Routes>
         </Router>
     );
