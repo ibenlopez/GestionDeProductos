@@ -5,6 +5,8 @@ import { createProduct, getProduct, updateProduct } from '../services/productDet
 import { ProductDetail } from '../interface/IProductDetail';
 import { FaSave } from 'react-icons/fa';
 
+//Página individual de producto para editarlo desde el Dashboard
+
 const ProductEditPage: React.FC = () => {
 
   const { id } = useParams<{ id?: string }>();
@@ -16,7 +18,7 @@ const ProductEditPage: React.FC = () => {
   const [name, setName] = useState<string>('')
   const [price, setPrice] = useState<number>(0.0)
   const [description, setDescription] = useState<string>('')
-  const [image, setImage] = useState<File | undefined>()
+  const [image, setImage] = useState<File | undefined>() //para almacenar un archivo o puede estar indefinido por si no se actualiza
 
   useEffect(() => {
     if (id != null) {
@@ -47,7 +49,7 @@ const ProductEditPage: React.FC = () => {
   return (
     <div className='container'>
       <div className="row">
-        <h1>{id != null ? "Editar" : "Agregar Producto"}  {product?.name}</h1>
+        <h2 className='my-5'>{id != null ? "Editar" : "Agregar Producto"}  {product?.name}</h2>
         <div className="mb-3">
           <label className="form-label">Nombre</label>
           <input type="text" className="form-control" value={name} onChange={e => setName(e.target.value)} />

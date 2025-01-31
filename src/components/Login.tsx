@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/authService";
 
+//Para iniciar sesión
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -20,7 +21,7 @@ function Login() {
 
     return (
         <div className="container pt-5">
-            <h2 className="text-primary">Iniciar Sesión</h2>
+            <h2 className="text-info">Iniciar Sesión</h2>
             <form className="card p-4 shadow" onSubmit={handleSubmit}>
                 <input
                 className="form-control mb-3"
@@ -38,7 +39,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button className="btn btn-success" type="submit">Ingresar</button>
+                <button className="btn btn-info" type="submit">Ingresar</button>
             </form>
         </div>
     );

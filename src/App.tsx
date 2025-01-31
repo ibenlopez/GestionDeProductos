@@ -8,9 +8,11 @@ import Navbar from "./components/Navbar";
 import './App.css'
 import ProductPage from "./pages/ProductPage";
 import ProductEditPage from "./pages/ProductEditPage";
+import Footer from "./components/Footer";
 
 function App() {
     return (
+        <>
         <Router>
             <Navbar />
             <Routes>
@@ -25,7 +27,9 @@ function App() {
                 <Route path="/products/edit/:id" element={<ProtectedRoute component={ProductEditPage} />} />
                 <Route path="/products/add" element={<ProtectedRoute component={ProductEditPage} />} />
             </Routes>
+            <Footer />
         </Router>
+        </>
     );
 }
 

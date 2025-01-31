@@ -22,11 +22,13 @@ export const getProducts = async () : Promise<Product[]> => {
   }
 };
 
+//Servicio para actualizar producto desde el dashboard
+
 export const updateProduct = async (product: Product, file: File | undefined)  => {
   try {
     const formData = new FormData();
     if (file) {
-      formData.append('img', file);
+      formData.append('img', file); //imagen tipo archivo
     }
     formData.append('name', product.name);
     formData.append('description', product.description);
@@ -38,6 +40,8 @@ export const updateProduct = async (product: Product, file: File | undefined)  =
     throw new Error(error.response?.data?.message || 'Error al obtener el producto');
   }
 };
+
+//Servicio para crear un producto desde el dashboard
 
 export const createProduct = async (product: Product, file: File | undefined)  => {
   try {
@@ -56,6 +60,8 @@ export const createProduct = async (product: Product, file: File | undefined)  =
   }
 };
 
+//Servicio para borrar un proudcto desde el dashboard
+
 export const deleteProduct = async (product: Product)  => {
   try {
     await api.delete(`/products/${product.id}`);
@@ -65,6 +71,8 @@ export const deleteProduct = async (product: Product)  => {
   }
 };
 
+//Servicio para eliminar reseñas o rewvies desde el dashboard
+
 export const deleteReviews = async (idReview: number)  => {
   try {
     await api.delete(`/reviews/${idReview}`);
@@ -73,6 +81,8 @@ export const deleteReviews = async (idReview: number)  => {
     throw new Error(error.response?.data?.message || 'Error al obtener el producto');
   }
 };
+
+//Servicio para guardar reviews desde el dashboard
 
 export const sendReview = async (review: {rating: number, comment: string}, productId: number)  => {
   try {

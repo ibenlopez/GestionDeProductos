@@ -26,13 +26,13 @@ function Dashboard() {
 
     return (
         <>
-            <h1>Bienvenido al Dashboard (Ruta Protegida)</h1>
+            <h2 className="mt-5">Bienvenido al administrador de productos</h2>
 
             <div className="container mt-5">
 
                 <div className="row mb-5">
-                    <a href="/products/add" className="btn btn-primary">
-                        <FaPlusCircle /> Agregar
+                    <a href="/products/add" className="btn btn-info">
+                        <FaPlusCircle /> Agregar nuevo producto
                     </a>
                 </div>
 
@@ -40,13 +40,13 @@ function Dashboard() {
 
 
                     {products.map(product => {
-                        return <div className="col-4" key={product.id}>
+                        return <div className="col-12 col-sm-6 col-md-3 mb-4" key={product.id}>
                             <div className="card">
                                 <img src={product.img_url} className="card-img-top" />
                                 <div className="card-body">
                                     <h5 className="card-title">{product.name}</h5>
                                     <p className="card-text">{product.description}</p>
-                                    <a href={`/products/edit/${product.id}`} className="btn btn-primary"><FaPen /></a>
+                                    <a href={`/products/edit/${product.id}`} className="btn btn-info text-white"><FaPen /></a>
                                     &nbsp;
                                     <a href="#" className="btn btn-danger" onClick={e => setSelected(product)} data-bs-toggle="modal" data-bs-target="#exampleModal"><FaTrash /></a>
                                     &nbsp;

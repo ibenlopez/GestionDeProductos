@@ -2,6 +2,8 @@ import { useState } from "react";
 import { register } from "../services/authService";
 import { useNavigate } from "react-router-dom";
 
+//para registrar
+
 function Register() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -20,7 +22,7 @@ function Register() {
 
     return (
         <div className="container mt-5 w-md-100 w-lg-50">
-            <h2 className="text-primary">Registro</h2>
+            <h2 className="text-info">Registro</h2>
             <form className="card p-4 shadow" onSubmit={handleSubmit}>
                 <input
                 className="form-control mb-3"
@@ -46,7 +48,7 @@ function Register() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button className="btn btn-success" type="submit">Registrarse</button>
+                <button className="btn btn-info" type="submit">Registrarse</button>
             </form>
         </div>
     );

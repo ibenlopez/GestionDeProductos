@@ -83,9 +83,9 @@ const ProductDetail: React.FC = () => {
 
         {/* Información del producto */}
         <div className="col-md-8">
-          <h2>{product.name}</h2>
+          <h2 className="fw-bold">{product.name}</h2>
           <p>{product.description}</p>
-          <p className="fw-bold">Precio: ${product.price}</p>
+          <h5 className="fw-bold text-info">Precio: ${product.price}</h5>
           <p className="fw-bold">
             Calificación: {averageRating} {renderStars(Number(averageRating))}
           </p>

@@ -45,7 +45,7 @@ const ProductList = () => {
     //Retorno de los datos una vez hecha la peticion
     return (
         <div>
-            <h2 className="text-center my-4">Lista de Productos</h2>
+            <h2 className="fw-bold text-center my-4">Lo más novedoso</h2>
             <div className="container">
                 <div className="row">
                     {products.map((product) => (
@@ -58,9 +58,9 @@ const ProductList = () => {
                                     onClick={() => handleImageClick(product.id)} // Redirige al hacer click y muestra los detalles del producto
                                 />
                                 <div className="card-body">
-                                    <h5 className="card-title">{product.name}</h5>
+                                    <h4 className="card-title fw-bold">{product.name}</h4>
                                     <p className="card-text">{product.description}</p>
-                                    <p className="card-text text-danger"><strong>Precio: ${product.price}</strong></p>
+                                    <p className="card-text text-info fw-bold"><strong>Precio: ${product.price}</strong></p>
                                 </div>
                             </div>
                         </div>
