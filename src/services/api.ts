@@ -18,4 +18,8 @@ api.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
+export const isLoggedIn = () => {
+  return localStorage.getItem("token") != "" &&  localStorage.getItem("token") != null;
+}
+
 export default api;

@@ -6,7 +6,8 @@ import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import './App.css'
-import ProductDetail from "./pages/ProductPage";
+import ProductPage from "./pages/ProductPage";
+import ProductEditPage from "./pages/ProductEditPage";
 
 function App() {
     return (
@@ -20,7 +21,9 @@ function App() {
                     path="/dashboard"
                     element={<ProtectedRoute component={Dashboard} />}
                 />
-                <Route path="/products/:id" element={<ProductDetail />} />
+                <Route path="/products/:id" element={<ProductPage />} />
+                <Route path="/products/edit/:id" element={<ProtectedRoute component={ProductEditPage} />} />
+                <Route path="/products/add" element={<ProtectedRoute component={ProductEditPage} />} />
             </Routes>
         </Router>
     );

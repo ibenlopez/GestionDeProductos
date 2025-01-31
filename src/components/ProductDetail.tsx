@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProduct } from '../services/productDetailService';
-import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
+import { deleteReviews, getProduct } from '../services/productDetailService';
+import { FaStar, FaStarHalfAlt, FaRegStar, FaTrash } from 'react-icons/fa';
+import { isLoggedIn } from '../services/api';
+import ReviewFrom from './ReviewForm';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,7 +23,7 @@ const ProductDetail: React.FC = () => {
         const data = await getProduct(Number(id));
         setProduct(data.data);
         console.log(data);
-        
+
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -40,7 +42,7 @@ const ProductDetail: React.FC = () => {
     if (!product.reviews || product.reviews.length === 0) return 0;
 
     const totalRating = product.reviews.reduce((sum: number, review: any) => sum + Number(review.rating), 0);
-    return (totalRating / product.reviews.length).toFixed(1); 
+    return (totalRating / product.reviews.length).toFixed(1);
   };
 
   const averageRating = calculateAverageRating();
@@ -59,6 +61,12 @@ const ProductDetail: React.FC = () => {
     }
     return stars;
   };
+
+  const deleteReview = async (review: any) => {
+    await deleteReviews(review.id);
+
+    location.reload();
+  }
 
   return (
     <div className="container mt-4">
@@ -85,12 +93,20 @@ const ProductDetail: React.FC = () => {
       </div>
 
       {/* Sección de reseñas */}
+
+      {(isLoggedIn() && id && <div className="mt-4">
+        <ReviewFrom productId={parseInt(id)} />
+      </div>)}
+
       <div className="mt-4">
         <h3>Reseñas:</h3>
         {product.reviews && product.reviews.length > 0 ? (
           <div className="list-group">
             {product.reviews.map((review: any) => (
               <div key={review.id} className="list-group-item">
+                {isLoggedIn() && <a href="#" onClick={e => deleteReview(review)} className="btn btn-danger">
+                  <FaTrash></FaTrash>
+                </a>}
                 <p><strong>Usuario:</strong> {review.username || "Anónimo"}</p>
                 <p><strong>Calificación:</strong> {renderStars(Number(review.rating))}</p>
                 <p><strong>Comentario:</strong> {review.comment}</p>
